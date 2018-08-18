@@ -5,7 +5,7 @@ var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l
 
 var wins = 0;
 var losses = 0;
-var guessesLeft = 9;
+var guessesLeft = 7;
 var guessesSoFar = [];
 
  // This function is run whenever the user presses a key.
@@ -16,11 +16,11 @@ var guessesSoFar = [];
 
      var computerLetters = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
-     // Randomly chooses a choice from the options array. This is the Computer's guess.
+     
     if (userGuess === computerLetters) {
         wins++;
 		console.log("You won!");
-		guessesLeft = 9;
+		guessesLeft = 7;
 		guessesSoFar = [];
 		computerLetters = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 		console.log("Wins: " + wins + " Losses: " + losses + " GuessesLeft: " + guessesLeft + " Guesses so far: " + guessesSoFar + " Computer picked: " + computerGuess);
@@ -29,21 +29,19 @@ var guessesSoFar = [];
      
     if (guessesSoFar.indexOf(userGuess) < 0 && computerChoices.indexOf(userGuess) >= 0) {
 		guessesSoFar[guessesSoFar.length]=userGuess;
-		// if it is a new letter then decrease remaining guesses by 1
+		
 		guessesLeft--;
     }
     
     if (guessesLeft == 0) {
 		losses++;
 		console.log("You lost!");
-		guessesLeft = 9;
+		guessesLeft = 7;
 		guessesSoFar = [];
-		computerLetters = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+		
 		console.log("Wins: " + wins + " Losses: " + losses + " GuessesLeft: " + guessesLeft + " Guesses so far: " + guessesSoFar + " Computer picked: " + computerGuess);
-	}
-
-
-    
+    }
+  
 
      // Creating a variable to hold our new HTML. Our HTML now keeps track of the user and computer guesses, and wins/losses/ties.
      var html =
